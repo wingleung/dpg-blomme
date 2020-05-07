@@ -176,3 +176,38 @@ describe(`'Backstage passes to a TAFKAL80ETC concert' item`, function () {
     expect(updatedItem.quality).toBe(3)
   })
 })
+
+describe(`'Conjured' item`, function () {
+  it(`should decrease quality by 2`, () => {
+    const conjuredItem = new Item('Conjured', 1, 2)
+    const gildedRose = new Shop([conjuredItem])
+
+    const [updatedItem] = gildedRose.updateQuality()
+
+    expect(updatedItem.name).toBe('Conjured')
+    expect(updatedItem.sellIn).toBe(0)
+    expect(updatedItem.quality).toBe(0)
+  })
+
+  it(`should decrease quality by 4 when sell date expires`, () => {
+    const conjuredItem = new Item('Conjured', 0, 8)
+    const gildedRose = new Shop([conjuredItem])
+
+    const [updatedItem] = gildedRose.updateQuality()
+
+    expect(updatedItem.name).toBe('Conjured')
+    expect(updatedItem.sellIn).toBe(-1)
+    expect(updatedItem.quality).toBe(4)
+  })
+
+  it(`should floor quality at 0`, () => {
+    const conjuredItem = new Item('Conjured', 0, 0)
+    const gildedRose = new Shop([conjuredItem])
+
+    const [updatedItem] = gildedRose.updateQuality()
+
+    expect(updatedItem.name).toBe('Conjured')
+    expect(updatedItem.sellIn).toBe(-1)
+    expect(updatedItem.quality).toBe(0)
+  })
+})
