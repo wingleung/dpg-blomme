@@ -1,6 +1,6 @@
 import { Shop, Item } from '../src/gilded_rose.js'
 
-describe(`empty state`, function () {
+describe(`empty state`, () => {
   it(`should return an empty array when no items are given`, () => {
     const gildedRose = new Shop()
 
@@ -10,7 +10,7 @@ describe(`empty state`, function () {
   })
 })
 
-describe(`default item`, function () {
+describe(`default item`, () => {
   it(`should decrease quality by 1`, () => {
     const defaultItem = new Item('foo', 1, 2)
     const gildedRose = new Shop([defaultItem])
@@ -45,8 +45,8 @@ describe(`default item`, function () {
   })
 })
 
-describe(`'Sulfuras, Hand of Ragnaros' item`, function () {
-  it(`should leave quality untouched`, function () {
+describe(`'Sulfuras, Hand of Ragnaros' item`, () => {
+  it(`should leave quality untouched`, () => {
     const sulfurasItem = new Item('Sulfuras, Hand of Ragnaros', 0, 80)
     const gildedRose = new Shop([sulfurasItem])
 
@@ -57,7 +57,7 @@ describe(`'Sulfuras, Hand of Ragnaros' item`, function () {
     expect(updatedItem.quality).toBe(80)
   })
 
-  it(`should leave quality untouched when sell date expires`, function () {
+  it(`should leave quality untouched when sell date expires`, () => {
     const sulfurasItem = new Item('Sulfuras, Hand of Ragnaros', -1, 80)
     const gildedRose = new Shop([sulfurasItem])
 
@@ -69,8 +69,8 @@ describe(`'Sulfuras, Hand of Ragnaros' item`, function () {
   })
 })
 
-describe(`'Aged Brie' item`, function () {
-  it(`should increase quality by 1`, function () {
+describe(`'Aged Brie' item`, () => {
+  it(`should increase quality by 1`, () => {
     const agedBrieItem = new Item('Aged Brie', 1, 0)
     const gildedRose = new Shop([agedBrieItem])
 
@@ -81,7 +81,7 @@ describe(`'Aged Brie' item`, function () {
     expect(updatedItem.quality).toBe(1)
   })
 
-  it(`should limit max quality at 50`, function () {
+  it(`should limit max quality at 50`, () => {
     const agedBrieItem = new Item('Aged Brie', 0, 50)
     const gildedRose = new Shop([agedBrieItem])
 
@@ -92,7 +92,7 @@ describe(`'Aged Brie' item`, function () {
     expect(updatedItem.quality).toBe(50)
   })
 
-  it(`should increase quality by 2 when sell date expires`, function () {
+  it(`should increase quality by 2 when sell date expires`, () => {
     const agedBrieItem = new Item('Aged Brie', 0, 0)
     const gildedRose = new Shop([agedBrieItem])
 
@@ -103,7 +103,7 @@ describe(`'Aged Brie' item`, function () {
     expect(updatedItem.quality).toBe(2)
   })
 
-  it(`should limit max quality at 50 when sell date expires`, function () {
+  it(`should limit max quality at 50 when sell date expires`, () => {
     const agedBrieItem = new Item('Aged Brie', 0, 49)
     const gildedRose = new Shop([agedBrieItem])
 
@@ -115,8 +115,8 @@ describe(`'Aged Brie' item`, function () {
   })
 })
 
-describe(`'Backstage passes to a TAFKAL80ETC concert' item`, function () {
-  it(`should set quality to 0 when sell date expires`, function () {
+describe(`'Backstage passes to a TAFKAL80ETC concert' item`, () => {
+  it(`should set quality to 0 when sell date expires`, () => {
     const backStageItem = new Item(
       'Backstage passes to a TAFKAL80ETC concert',
       0,
@@ -131,7 +131,7 @@ describe(`'Backstage passes to a TAFKAL80ETC concert' item`, function () {
     expect(updatedItem.quality).toBe(0)
   })
 
-  it(`should increase quality by 1`, function () {
+  it(`should increase quality by 1`, () => {
     const backStageItem = new Item(
       'Backstage passes to a TAFKAL80ETC concert',
       11,
@@ -146,7 +146,7 @@ describe(`'Backstage passes to a TAFKAL80ETC concert' item`, function () {
     expect(updatedItem.quality).toBe(1)
   })
 
-  it(`should increase quality by 2 when sell date expires in 10 days`, function () {
+  it(`should increase quality by 2 when sell date expires in 10 days`, () => {
     const backStageItem = new Item(
       'Backstage passes to a TAFKAL80ETC concert',
       6,
@@ -161,7 +161,7 @@ describe(`'Backstage passes to a TAFKAL80ETC concert' item`, function () {
     expect(updatedItem.quality).toBe(2)
   })
 
-  it(`should increase quality by 3 when sell date expires in 5 days`, function () {
+  it(`should increase quality by 3 when sell date expires in 5 days`, () => {
     const backStageItem = new Item(
       'Backstage passes to a TAFKAL80ETC concert',
       1,
@@ -177,7 +177,7 @@ describe(`'Backstage passes to a TAFKAL80ETC concert' item`, function () {
   })
 })
 
-describe(`'Conjured' item`, function () {
+describe(`'Conjured' item`, () => {
   it(`should decrease quality by 2`, () => {
     const conjuredItem = new Item('Conjured', 1, 2)
     const gildedRose = new Shop([conjuredItem])

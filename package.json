@@ -1,11 +1,12 @@
 {
-  "name": "gilded-rose-kata",
+  "name": "dpg-blomme",
   "version": "1.0.0",
   "description": "Gilded Rose kata in JavaScript with Jest",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "test:fixture": "npx babel-node test/texttest_fixture.js",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -16,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emilybache/GildedRose-Refactoring-Kata.git"
+    "url": "git+https://github.com/wingleung/dpg-blomme.git"
   },
   "keywords": [
     "kata",
@@ -26,11 +27,12 @@
   "license": "MIT",
   "private": true,
   "bugs": {
-    "url": "https://github.com/emilybache/GildedRose-Refactoring-Kata/issues"
+    "url": "https://github.com/wingleung/dpg-blomme/issues"
   },
-  "homepage": "https://github.com/emilybache/GildedRose-Refactoring-Kata",
+  "homepage": "https://github.com/wingleung/dpg-blomme",
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.6",
     "babel-jest": "^26.0.1",
     "husky": "^4.2.5",
